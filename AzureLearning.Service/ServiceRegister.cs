@@ -1,4 +1,5 @@
 ﻿using AzureLearning.Service.Account;
+using AzureLearning.Service.BlobStorage;
 
 namespace AzureLearning.Service
 {
@@ -8,7 +9,8 @@ namespace AzureLearning.Service
         {
             var serviceDictonary = new Dictionary<Type, Type>
             {
-                { typeof(IAccountService), typeof(AccountService) }
+                { typeof(IAccountService), typeof(AccountService) },
+                { typeof(IBlobService), typeof(BlobService) },
             };
             return serviceDictonary;
 

@@ -1,4 +1,5 @@
-﻿
+﻿using AzureLearning.Data;
+using AzureLearning.Service;
 
 namespace AzureLearning.API
 {
@@ -6,8 +7,8 @@ namespace AzureLearning.API
     {
         public static void RegisterServices(this IServiceCollection services)
         {
-            //Configure(services, DataRegister.GetTypes());
-            //Configure(services, ServiceRegister.GetTypes());
+            Configure(services, DataRegister.GetTypes());
+            Configure(services, ServiceRegister.GetTypes());
         }
         private static void Configure(IServiceCollection services, Dictionary<Type, Type> types)
         {
