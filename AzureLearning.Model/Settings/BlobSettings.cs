@@ -6,7 +6,8 @@ namespace AzureLearning.Model.Settings
 {
     public class BlobSettings
     {
-        public string? ConnectionString { get; set; }
-        public string? ContainerName { get; set; }
+        public string? VaultUri { get; set; }
+        public string? BlobConnectionStringSecretName { get; set; }
+        public string? BlobContainerNameSecretName { get; set; }
     }
 }

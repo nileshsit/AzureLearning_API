@@ -1,12 +1,11 @@
-﻿using Azure.Storage;
+﻿using Azure.Identity;
+using Azure.Storage;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using Azure.Storage.Sas;
+using Azure.Security.KeyVault.Secrets;
 using AzureLearning.Model.Settings;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace AzureLearning.Service.BlobStorage
 {
@@ -19,14 +18,27 @@ namespace AzureLearning.Service.BlobStorage
 
         public BlobService(IConfiguration config)
         {
-            var settings = config.GetSection("AzureBlob").Get<BlobSettings>();
-            var client = new BlobServiceClient(settings?.ConnectionString);
-            _container = client.GetBlobContainerClient(settings?.ContainerName);
+            var settings = config.GetSection("KeyVault").Get<BlobSettings>();
+            string _blobConnectionString = null;
+            string _blobContainerName = null;
+
+            if (!string.IsNullOrWhiteSpace(settings?.VaultUri))
+            {
+                var secretClient = new SecretClient(new Uri(settings.VaultUri), new DefaultAzureCredential());
+
+                var connSecret = secretClient.GetSecret(settings.BlobConnectionStringSecretName);
+                _blobConnectionString = connSecret.Value.Value;
+
+                var containerSecret = secretClient.GetSecret(settings.BlobContainerNameSecretName);
+                _blobContainerName = containerSecret.Value.Value;
+            }
+
+            var client = new BlobServiceClient(_blobConnectionString);
+            _container = client.GetBlobContainerClient(_blobContainerName);
             _container.CreateIfNotExists(PublicAccessType.None);
 
-            // Extract account name and key from connection string
-            _accountName = ParseConnectionStringValue(settings.ConnectionString, "AccountName");
-            _accountKey = ParseConnectionStringValue(settings.ConnectionString, "AccountKey");
+            _accountName = ParseConnectionStringValue(_blobConnectionString, "AccountName");
+            _accountKey = ParseConnectionStringValue(_blobConnectionString, "AccountKey");
         }
 
 
