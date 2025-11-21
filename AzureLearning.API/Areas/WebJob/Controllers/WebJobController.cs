@@ -45,7 +45,10 @@ namespace AzureLearning.API.Areas.WebJob.Controllers
                 var client = _httpClientFactory.CreateClient();
 
                 // Create Basic Auth header
-                var authToken = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{kuduUser}:{kuduPass}"));
+                var authToken = Convert.ToBase64String(
+      Encoding.ASCII.GetBytes($"{kuduUser}:{kuduPass}")
+ );
+
                 client.DefaultRequestHeaders.Authorization =
                     new AuthenticationHeaderValue("Basic", authToken);
 
