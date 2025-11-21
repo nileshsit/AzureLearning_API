@@ -29,6 +29,8 @@ builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSet
 // Add Open API config
 builder.Services.AddOpenApiConfiguration(builder.Configuration);
 
+builder.Services.AddHttpClient();
+
 // CORS configuration
 builder.Services.AddCors(options =>
 {
