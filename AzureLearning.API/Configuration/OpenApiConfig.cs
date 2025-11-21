@@ -92,8 +92,8 @@ namespace AzureLearning.API.Configuration
         {
             var provider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
 
-            if (app.Environment.IsDevelopment())
-            {
+            //if (app.Environment.IsDevelopment())
+            //{
                 app.MapOpenApi();
 
                 // Swagger UI
@@ -119,7 +119,7 @@ namespace AzureLearning.API.Configuration
                         .WithTheme(ScalarTheme.BluePlanet)
                         .WithDefaultHttpClient(ScalarTarget.CSharp, ScalarClient.HttpClient);
                 });
-            }
+            //}
             // ReDoc UI
             foreach (var description in provider.ApiVersionDescriptions)
             {
