@@ -1,7 +1,0 @@
-<Solution>
-  <Project Path="AzureLearning.API/AzureLearning.API.csproj" />
-  <Project Path="AzureLearning.Common/AzureLearning.Common.csproj" Id="230d37c7-036a-42d5-b277-82f7553863a3" />
-  <Project Path="AzureLearning.Data/AzureLearning.Data.csproj" Id="52dd5ce7-34d8-4c13-be5d-d70cd4d2a881" />
-  <Project Path="AzureLearning.Model/AzureLearning.Model.csproj" Id="fccac822-c76c-4a22-bc6e-0489bb988870" />
-  <Project Path="AzureLearning.Service/AzureLearning.Service.csproj" Id="5079e406-443b-4c45-b37f-fb745f58a077" />
-</Solution>
