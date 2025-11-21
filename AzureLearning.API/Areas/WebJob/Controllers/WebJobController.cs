@@ -24,7 +24,7 @@ namespace AzureLearning.API.Areas.WebJob.Controllers
         /// <summary>
         /// Trigger Azure WebJob Manually
         /// </summary>
-        [HttpPost("trigger")]
+        [HttpGet("trigger")]
         public async Task<ApiPostResponse<string>> TriggerWebJob()
         {
             var response = new ApiPostResponse<string>();
