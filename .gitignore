@@ -4,5 +4,5 @@
 
 /.vs
 
-/AzureWebJobTriggerManual/bin
-/AzureWebJobTriggerManual/obj
+/AzureWebJobContinuous/bin
+/AzureWebJobContinuous/obj
