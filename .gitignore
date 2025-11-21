@@ -4,17 +4,5 @@
 
 /.vs
 
-/AzureLearning.API/bin
-/AzureLearning.API/obj
-
-/AzureLearning.Common/bin
-/AzureLearning.Common/obj
-
-/AzureLearning.Data/bin
-/AzureLearning.Data/obj
-
-/AzureLearning.Model/bin
-/AzureLearning.Model/obj
-
-/AzureLearning.Service/bin
-/AzureLearning.Service/obj
+/AzureWebJobTriggerSchedule/obj
+/AzureWebJobTriggerSchedule/bin

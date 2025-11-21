@@ -1,6 +1,6 @@
 ﻿using System.Net.Mail;
 
-namespace AzureLearning.Common.EmailNotification
+namespace AzureWebJobTriggerSchedule.EmailNotification
 {
     /// <summary>
     /// This Class EmailNotification will use to send email 
